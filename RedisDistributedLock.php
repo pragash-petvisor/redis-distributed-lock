@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Predis\Client;
-use RuntimeException;
 
 class RedisDistributedLock
 {

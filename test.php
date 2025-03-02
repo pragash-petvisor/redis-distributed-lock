@@ -5,11 +5,13 @@ require 'RedisDistributedLock.php';
 
 use Predis\Client;
 
+$lockValue = bin2hex(random_bytes(16));
+
 // Initialize Redis client
 $redis = new Client(['host' => '127.0.0.1', 'port' => 6379]);
 
 // Create the lock instance
-$lock = new RedisDistributedLock($redis, 'my_lock', 10);
+$lock = new RedisDistributedLock($redis, 'my_lock', $lockValue, 10);
 
 $isComplete = false;
 
